@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Create an Account</title>
+    <!-- Icons font CSS-->
+    <link href="{% static 'register_vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'register_vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'register_vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'register_vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'register_css/main.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">Create an Account</h2>
+            </div>
+            <div class="card-body">
+                <form action="/register/" method="post">
+                    {% csrf_token %}
+                    <div class="form-row m-b-55">
+                        <div class="name">Name</div>
+                        <div class="value">
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" name="first_name" required="True" type="text">
+                                        <label class="label--desc">first name</label>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" name="last_name" required="True" type="text">
+                                        <label class="label--desc">last name</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">USN</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" name="usn" required="True" type="text">
+                                <label class="label--desc">USN will be used as username. This field is case sensitive!</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Email</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" name="email" required="True" type="email">
+                                <label class="label--desc">Activation link will be sent to this email address.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Password</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" name="password1" required="True" type="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Confirm Password</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" name="password2" required="True" type="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                    </div>
+                </form>
+                <div class="txt2">
+                    {% for message in messages %}
+                    <h5 align="center" style="color:red;">{{message}}</h5>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jquery JS-->
+<script src="{% static 'register_vendor/jquery/jquery.min.js' %}"></script>
+<!-- Vendor JS-->
+<script src="{% static 'register_vendor/select2/select2.min.js' %}"></script>
+<script src="{% static 'register_vendor/datepicker/moment.min.js' %}"></script>
+<script src="{% static 'register_vendor/datepicker/daterangepicker.js' %}"></script>
+
+<!-- Main JS-->
+<script src="{% static 'register_js/global.js' %}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
